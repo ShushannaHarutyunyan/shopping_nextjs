@@ -35,20 +35,11 @@ export default function ProducstList ({title, id, price, description, category, 
         }}/>
         </div>
       </div>
-      <Link href={'/products'+ id} key ={id}/>
-      <Link href={{
-        pathname:'/product',
-        query:{
-          id: id
-        }
-      }} key ={id}/>
-      <button onClick={()=>{<Link href={{
-        pathname:'/product',
-        query:{
-          id: id
-        }
-      }} key ={id}/>}}>
-      <div className=' p-2 mt-4 text-sm text-gray-700'>{title}</div></button>
+      
+      <div className=' p-2 mt-4 text-sm text-gray-700'>
+      <Link href= {`/products/${id}`} key ={id}>{title}</Link>
+      
+      </div>  
       
       <div className=" pb-2 px-2 mt-1 text-lg font-medium text-gray-900">${price}</div>
 

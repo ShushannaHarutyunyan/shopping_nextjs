@@ -1,8 +1,12 @@
-import React from 'react'
+
+import React 
+from 'react'
+
 import ProducstList from '../Components/productsList'
 
 
 export default async function ProductList() {
+
   const response = await fetch ('https://fakestoreapi.com/products/', {cache:'no-cache'})
   const productsData : Product[]= await response.json()
 

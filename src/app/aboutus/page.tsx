@@ -1,9 +1,12 @@
 import React from 'react'
 
+
 const AboutUs = () => {
-  return (
+  
+  return (<>
     <div>AboutUs</div>
-  )
+    
+    </>)
 }
 
 export default AboutUs

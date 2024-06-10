@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import { useState } from 'react'
 import { ArrowsPointingOutIcon} from '@heroicons/react/24/solid'
-
+//creat Modal for quick view 
 const PraductModal:FC<Product> = ({title, id, price, description, category, image, rating}) => {
     const [modalState, setModalState] = useState(false)
   return (<>

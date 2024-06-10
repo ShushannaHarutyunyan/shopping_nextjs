@@ -1,3 +1,4 @@
+import ProductAdd from '../../Components/productAdd'
 import React from 'react'
 
 async function getProduct(id:number){
@@ -73,7 +74,7 @@ export default async function ProductItem({params}:{params:{productId:number}})
           </div>
         </div>
 
-        <button type="submit" className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Buy</button>
+      <ProductAdd id={product.id} price ={product.price} title={product.title}/>
       </div>
 
       <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">

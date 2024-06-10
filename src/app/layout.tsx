@@ -4,6 +4,8 @@ import "./globals.css";
 import { Container } from "postcss";
 import CompHeader from './Components/header'
 import Footers from "./Components/footer";
+import { ShoppingCartProvider } from "../context/ShoppingCartContext";
+import ShoppingCart from "./Components/shoppingCart";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-zinc-100 text-zinc-900`}>
+      <ShoppingCartProvider>
       <CompHeader/>
         {children}
       <Footers/>
+      </ShoppingCartProvider>
       </body>
     </html>
   );

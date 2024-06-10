@@ -1,9 +1,14 @@
 "use client"
+import { useShoppingCart } from '../../context/ShoppingCartContext'
 import Link from 'next/link'
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
+import ShoppingCart from './shoppingCart'
+// header componrnt 
 const CompHeader = () =>{
+  const {cartQuantity} = useShoppingCart()
     const [isOpen, setISOpen] = useState(false)
+    const [isBasketOpen, setIsBasketOpen] = useState(false)
+    
   return (
     <div>
         <header className="bg-white w-full">
@@ -23,16 +28,18 @@ const CompHeader = () =>{
       </button>
     </div>
     <div className="hidden lg:flex lg:gap-x-12">
-      <Link href="products" className="text-sm font-semibold leading-6 text-gray-900">Products</Link>
-      <Link href="aboutus" className="text-sm font-semibold leading-6 text-gray-900">About us</Link>
+      <Link href="/products" className="text-sm font-semibold leading-6 text-gray-900">Products</Link>
+      <Link href="/aboutus" className="text-sm font-semibold leading-6 text-gray-900">About us</Link>
     </div>
     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-      <Link href="/" className="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></Link>
+    <button onClick={()=>setIsBasketOpen(true)}
+            className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Basket
+              </button>
     </div>
   </nav>
 
 {isOpen &&    <div className="lg:hidden" role="dialog" aria-modal="true">
-    
+
     <div className="fixed inset-0 z-10"></div>
     <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
       <div className="flex items-center justify-between">
@@ -54,13 +61,16 @@ const CompHeader = () =>{
             <Link href="aboutus" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Us</Link>
           </div>
           <div className="py-6">
-            <Link href="/" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</Link>
+            <button onClick={()=>setIsBasketOpen(true)}
+            className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Basket
+              </button>
           </div>
         </div>
       </div>
     </div>
   </div>}
 </header>
+{isBasketOpen && <ShoppingCart  show = {isBasketOpen}/>}
     </div>
   )
 }
